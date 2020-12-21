@@ -1,0 +1,55 @@
+{% extends 'basesatu.html' %} {% load static %} {% block content %}
+
+<body class="">
+
+    <div class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="card">
+                        <div class="card-header card-header-primary">
+                            <h4 class="card-title">POST BUS ANDA</h4>
+                            <p class="card-category">Isi Semua</p>
+                        </div>
+                        <div class="card-body">
+
+
+                            <form method="POST" enctype="multipart/form-data">
+                                {% csrf_token %}
+                                <!-- User Id : -->
+                                <!-- <input type="number" class="form-control" name="po_id" value="{{user.id}}" disabled="disabled"> -->
+                                <br> {{ formx.as_p }}
+                                <br> {{ formset.as_p }}
+                                <br>
+                                <input type="submit" value="Submit" class="btn btn-outline-sucsess">
+
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card card-profile">
+                        <div class="card-avatar">
+                            <a href="javascript:;">
+                                <img class="img" src="../assets/img/faces/marc.jpg" />
+                            </a>
+                        </div>
+                        <div class="card-body">
+                            <h6 class="card-category text-gray">CEO / Co-Founder</h6>
+                            <h4 class="card-title">PT SURYA</h4>
+                            <p class="card-description">
+                                Melayani sewa bus keseluruh dunia
+                            </p>
+                            <a href="/pengguna/profil" class="btn btn-primary btn-round">Edit</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+</body>
+
+{% endblock %}

@@ -1,0 +1,81 @@
+{% extends 'basesatu.html' %} {% load static %} {% block content %}
+
+
+<body class="">
+
+    <!-- End Navbar -->
+    <div class="content">
+        <div class="container-fluid">
+            <center>
+                <h1>Selamat Datang Pada Menu Admin Bus</h1>
+                <h3>Data Semua Bus</h3>
+            </center>
+            <div>
+                <div>
+                    <div>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <td style="text-align: center;">
+                                        <a class="btn btn-sm btn-primary" href="user/">Tambah</a>
+                                    </td>
+                                </tr>
+                            </thead>
+                        </table>
+                        <center>
+                            <table id="example" class="table table-striped table-bordered" style="width:100%">
+                                </thead>
+                                <thead>
+                                    <tr style="text-align: center;">
+                                        <th>ID</th>
+                                        <th>Judul</th>
+                                        <th>Merk dan Seri Bus</th>
+                                        <!-- <th>Tanggal Pembuatan Bus</th> -->
+                                        <th>Nomor Plat</th>
+                                        <th>Tahun Pembuatan</th>
+                                        <th>Jumlah Kursi</th>
+                                        <th>Harga/12Jam</th>
+                                        <th>Harga/hari</th>
+                                        <th>Aksi</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for d in data %}
+                                    <tr>
+                                        <td style="text-align: center;">{{d.id}}</td>
+                                        <td>{{d.judul}}</td>
+                                        <td>{{d.merk_seri_bus}}</td>
+                                        <!-- <td>{{d.tanggal_pembuatan}}</td> -->
+                                        <td>{{d.no_plat}}</td>
+                                        <td>{{d.tahun_pembuatan}}</td>
+                                        <td>{{d.jml_kursi}}</td>
+                                        <td>Rp {{d.harga_12jam}},-</td>
+                                        <td>Rp {{d.harga_fullday}},-</td>
+                                        <td style="text-align: center;">
+                                            <a type="button" class="btn btn-primary" href="{{d.id}}/detail">Detail</a>
+                                            <a type="button" class="btn btn-warning" href="{{d.id}}/edit">Edit</a>
+                                            <a type="button" class="btn btn-danger" href="{{d.id}}/hapus">Delete</a>
+
+                                        </td>
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </center>
+                    </div>
+                </div>
+                <footer class="footer">
+                    <div class="container-fluid">
+                        <div class="copyright float-right">
+                            &copy;
+                            <script>
+                                document.write(new Date().getFullYear())
+                            </script>,BOCBUS <i class="material-icons">favorite</i> by --
+                        </div>
+                    </div>
+                </footer>
+            </div>
+        </div>
+
+
+        {% endblock %}

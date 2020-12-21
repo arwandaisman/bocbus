@@ -1,0 +1,125 @@
+{% extends 'basesatu.html' %} {% load static %} {% block content %}
+
+
+<body class="">
+
+    <!-- End Navbar -->
+    <div class="content">
+        <div class="container-fluid">
+            <center>
+                <h1>Selamat Datang Pada Menu Admin Bus</h1>
+                <h3>Data Semua Bus</h3>
+            </center>
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm">
+                        <h4 class="text-center">DETAIL</h4><br>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="card" style="width: 100%">
+                        <ul class="list-group list-group-flush">
+
+                            <!-- {{timg.image.url}} -->
+                            <img src="{{timg.image.url}}" alt="Image Not Found" width="300px">
+
+
+                            <br>
+                            <li class="list-group-item">
+                                <h3>Judul : {{data.judul}}</h3>
+                            </li>
+                            <center>
+                                <!-- <li class="list-group-item"><img src="{{data.img.url}}" height="50%"></li> -->
+                            </center>
+                            <li class="list-group-item">Merk Bus : {{data.merk_seri_bus}}</li>
+                            <li class="list-group-item">Nomor Plat : {{data.no_plat}}</li>
+                            <li class="list-group-item">Kategori : {{data.kategori}}</li>
+                            <li class="list-group-item">Harga/12jam : RP {{data.harga_12jam}},-</li>
+                            <li class="list-group-item">Harga/12jam : RP {{data.harga_fullday}},-</li>
+                            <li class="list-group-item">Jumlah Kursi : {{data.jml_kursi}}</li>
+                            <li class="list-group-item">Jumlah Bus yang tersedia : {{data.jml_bus}}</li>
+
+
+                            <li class="list-group-item">AC :
+                                <!-- {{data.ac}} -->
+                                {% if not data.ac %} Tidak Ada {% else %} Ada {% endif %}
+
+                            </li>
+                            <li class="list-group-item">DVD :
+                                <!-- {{data.dvd}} -->
+                                {% if not data.dvd %} Tidak Ada {% else %} Ada {% endif %}
+                            </li>
+                            <li class="list-group-item">Toilet :
+                                <!-- {{data.toilet}} -->
+                                {% if not data.toilet %} Tidak Ada {% else %} Ada {% endif %}
+                            </li>
+                            <li class="list-group-item">Stop Kontak :
+                                <!-- {{data.stop_kontak}} -->
+                                {% if not data.kontak %} Tidak Ada {% else %} Ada {% endif %}
+                            </li>
+                            <li class="list-group-item">Sabuk Pengaman :
+                                <!-- {{data.sabuk_pengaman}} -->
+                                {% if not data.sabuk_pengaman %} Tidak Ada {% else %} Ada {% endif %}
+                            </li>
+                            <li class="list-group-item">Bagasi :
+                                <!-- {{data.bagasi}} -->
+                                {% if not data.bagasi %} Tidak Ada {% else %} Ada {% endif %}
+                            </li>
+                            <li class="list-group-item">WIFI :
+                                <!-- {{data.wifi}} -->
+                                {% if not data.wifi %} Tidak Ada {% else %} Ada {% endif %}
+                            </li>
+                            <li class="list-group-item">TV :
+                                <!-- {{data.tv}} -->
+                                {% if not data.tv %} Tidak Ada {% else %} Ada {% endif %}
+                            </li>
+                            <li class="list-group-item">Bantal :
+                                <!-- {{data.bantal}} -->
+                                {% if not data.bantal %} Tidak Ada {% else %} Ada {% endif %}
+                            </li>
+                            <li class="list-group-item">Selimut :
+                                <!-- {{data.selimut}} -->
+                                {% if not data.selimut %} Tidak Ada {% else %} Ada {% endif %}
+
+                            </li>
+                            <li class="list-group-item">Smoking Area :
+                                <!-- {{data.smoking_area}} -->
+                                {% if not data.smoking_area %} Tidak Ada {% else %} Ada {% endif %}
+                            </li>
+                            <li class="list-group-item">Tambahan : {{data.tambahan}}
+                            </li>
+
+                            <li class="list-group-item">User : {{data.po_id}}</li>
+
+
+                        </ul>
+                        <div class="row gallery">
+                            {% for p in image %}
+                            <img src="{{ p.image.url }}" alt="Image Not Found" width="300px">
+                            <p>{{p.t_id}}</p>
+                            {% endfor %}
+                        </div>
+                        <div class="card-body">
+                            <a href="/pengguna" class="btn btn-danger" class="card-link">Back</a>
+                            <a href="/pengguna/{{data.id}}/edit" class="btn btn-primary" class="card-link">Edit</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="footer">
+        <div class="container-fluid">
+            <div class="copyright float-right">
+                &copy;
+                <script>
+                    document.write(new Date().getFullYear())
+                </script>,BOCBUS <i class="material-icons">favorite</i> --
+            </div>
+        </div>
+    </footer>
+    </div>
+    </div>
+
+    {% endblock %}

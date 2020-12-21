@@ -1,0 +1,365 @@
+{% extends 'base.html' %} {% load static %} {% block content %}
+
+<!-- PRE LOADER -->
+<!-- <section class="preloader">
+          <div class="spinner">
+               <span class="spinner-rotate"></span>
+          </div>
+     </section>
+
+
+     <section class="navbar custom-navbar navbar-fixed-top" role="navigation">
+          <div class="container">
+
+               <div class="navbar-header">
+                    <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                         <span class="icon icon-bar"></span>
+                         <span class="icon icon-bar"></span>
+                         <span class="icon icon-bar"></span>
+                    </button>
+
+
+                    <a href="/home/" class="navbar-brand">BOKBUS</a>
+               </div>
+
+
+               <div class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav navbar-nav-first">
+                         <li><a href="/" class="smoothScroll">Home</a></li>
+                         <li><a href="/sewa" class="smoothScroll">Sewa Bus</a></li>
+                         <li><a href="#blog" class="smoothScroll">Paket Wisata</a></li>
+                         <li><a href="#work" class="smoothScroll">About</a></li>
+                         <li><a href="#contact" class="smoothScroll">Contacts</a></li>
+                    </ul>
+
+                    <ul class="nav navbar-nav navbar-right">
+                         <li><a href="#"><i class="fa fa-facebook-square"></i></a></li>
+                         <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                         <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                    </ul>
+               </div>
+
+          </div>
+     </section> -->
+
+
+<!-- HOME -->
+<section id="home" data-stellar-background-ratio="0.5">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-sm-12">
+                <div class="home-info">
+                    <h1>SELAMAT DATANG DI WEB BOOKING BUS</h1>
+                    <a href="sewa/" class="btn section-btn smoothScroll">Boking Bus</a>
+                    <!-- <span>
+                                   CALL US (+66) 010-020-0340
+                                   <small>For any inquiry</small>
+                              </span> -->
+                </div>
+            </div>
+
+            <div class="col-md-6 col-sm-12">
+                <div class="home-video">
+                    <div class="embed-responsive embed-responsive-16by9">
+                        <img src="https://pngimg.com/uploads/bus/bus_PNG8618.png" class="img-responsive" alt="">
+                        <!-- INI UNTUK LINK KE YOUTUBE -->
+                        <!-- <iframe src="https://www.youtube.com/embed/AqcjdkPMPJA" frameborder="0" allowfullscreen></iframe> -->
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+<!-- BLOG -->
+<section id="blog" data-stellar-background-ratio="0.5">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-md-12 col-sm-12">
+                <div class="section-title">
+                    <h2>BOOKING BUS</h2>
+                    <span class="line-bar">...</span>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-sm-6">
+                <!-- BLOG THUMB -->
+                <div class="media blog-thumb">
+                    <div class="media-object media-left">
+                        <a href="blog-detail.html"><img src="{% static 'sewabus/images/lima.jpeg' %}" class="img-responsive" alt=""></a>
+                    </div>
+                    <div class="media-body blog-info">
+                        <h3><a href="blog-detail.html">PT SURYA INDAH</a></h3>
+                        <small><i class="fa fa-clock-o"></i> December 22, 2017</small>
+                        <p>Lorem ipsum dolor sit consectetur adipiscing morbi venenatis.</p>
+                        <a href="blog-detail.html" class="btn section-btn">View Detail</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-sm-6">
+                <!-- BLOG THUMB -->
+                <div class="media blog-thumb">
+                    <div class="media-object media-left">
+                        <a href="blog-detail.html"><img src="{% static 'sewabus/images/empat.jpeg' %}" class="img-responsive" alt=""></a>
+                    </div>
+                    <div class="media-body blog-info">
+                        <h3><a href="blog-detail.html">PT SURYA ABADI</a></h3>
+                        <small><i class="fa fa-clock-o"></i> December 18, 2017</small>
+                        <p>Lorem ipsum dolor sit consectetur adipiscing morbi venenatis.</p>
+                        <a href="blog-detail.html" class="btn section-btn">View Detail</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-sm-6">
+                <!-- BLOG THUMB -->
+                <div class="media blog-thumb">
+                    <div class="media-object media-left">
+                        <a href="blog-detail.html"><img src="{% static 'sewabus/images/tiga.jpeg' %}" class="img-responsive" alt=""></a>
+                    </div>
+                    <div class="media-body blog-info">
+                        <h3><a href="blog-detail.html">PT INDAH </a></a>
+                        </h3>
+                        <small><i class="fa fa-clock-o"></i> December 14, 2017</small>
+                        <p>Lorem ipsum dolor sit consectetur adipiscing morbi venenatis.</p>
+                        <a href="blog-detail.html" class="btn section-btn">View Detail</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-sm-6">
+                <!-- BLOG THUMB -->
+                <div class="media blog-thumb">
+                    <div class="media-object media-left">
+                        <a href="blog-detail.html"><img src="{% static 'sewabus/images/satu.jpg' %}" class="img-responsive" alt=""></a>
+                    </div>
+                    <div class="media-body blog-info">
+                        <h3><a href="blog-detail.html">PT GRAHA</a></h3>
+                        <small><i class="fa fa-clock-o"></i> December 10, 2017</small>
+                        <p>Lorem ipsum dolor sit consectetur adipiscing morbi venenatis.</p>
+                        <a href="blog-detail.html" class="btn section-btn">View Detail</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- WORK -->
+<section id="work" data-stellar-background-ratio="0.5">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-md-12 col-sm-12">
+                <div class="section-title">
+                    <h2>BUS LUAR KOTA</h2>
+                    <span class="line-bar">...</span>
+                </div>
+            </div>
+
+            <div class="col-md-3 col-sm-6">
+                <!-- WORK THUMB -->
+                <div class="work-thumb">
+                    <a href="images/work-image1.jpg" class="image-popup">
+                        <img src="{% static 'sewabus/images/enam.jpeg' %}" class="img-responsive" alt="Work">
+
+                        <div class="work-info">
+                            <h3>MADURA-SURABYA</h3>
+                            <small>DUA JUTA</small>
+                        </div>
+                    </a>
+                </div>
+                <h2>BUS BIASA</h2>
+            </div>
+
+            <div class="col-md-3 col-sm-6">
+                <!-- WORK THUMB -->
+                <div class="work-thumb">
+                    <a href="images/work-image2.jpg" class="image-popup">
+                        <img src="{% static 'sewabus/images/satu.jpg' %}" class="img-responsive" alt="Work">
+
+                        <div class="work-info">
+                            <h3>JOGJA-PALEMBANG</h3>
+                            <small>Enam juta</small>
+                        </div>
+                    </a>
+                </div>
+                <h2>BUS PARIWISATA</h2>
+            </div>
+
+            <div class="col-md-3 col-sm-6">
+                <!-- WORK THUMB -->
+                <div class="work-thumb">
+                    <a href="images/work-image3.jpg" class="image-popup">
+                        <img src="{% static 'sewabus/images/dua.jpeg' %}" class="img-responsive" alt="Work">
+
+                        <div class="work-info">
+                            <h3>JAKARTA-SEMARANG</h3>
+                            <small>Tuju Juta</small>
+                        </div>
+                    </a>
+                </div>
+                <h2>BUS BIASA</h2>
+            </div>
+
+            <div class="col-md-3 col-sm-6">
+                <!-- WORK THUMB -->
+                <div class="work-thumb">
+                    <a href="/sewa">
+                        <img src="{% static 'sewabus/images/dua.jpeg' %}" class="img-responsive" alt="Work">
+
+                        <div class="work-info">
+                            <h3>SURABAYA-JOGJA</h3>
+                            <small>Lima juta</small>
+                        </div>
+                    </a>
+                </div>
+                <h2>BUS PARIWISATA</h2>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" data-stellar-background-ratio="0.5">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-md-12 col-sm-12">
+                <div class="section-title">
+                    <h2>Contact us</h2>
+                    <span class="line-bar">...</span>
+                </div>
+            </div>
+
+            <div class="col-md-8 col-sm-8">
+
+                <!-- CONTACT FORM HERE -->
+                <form id="contact-form" role="form" action="#" method="post">
+                    <div class="col-md-6 col-sm-6">
+                        <input type="text" class="form-control" placeholder="Full Name" id="cf-name" name="cf-name" required="">
+                    </div>
+
+                    <div class="col-md-6 col-sm-6">
+                        <input type="email" class="form-control" placeholder="Your Email" id="cf-email" name="cf-email" required="">
+                    </div>
+
+                    <div class="col-md-6 col-sm-6">
+                        <input type="tel" class="form-control" placeholder="Your Phone" id="cf-number" name="cf-number" required="">
+                    </div>
+
+                    <div class="col-md-6 col-sm-6">
+                        <select class="form-control" id="cf-budgets" name="cf-budgets">
+                                        <option>Budget Level</option>
+                                        <option>$500 to $1,000</option>
+                                        <option>$1,000 to $2,200</option>
+                                        <option>$2,200 to $4,500</option>
+                                        <option>$4,500 to $7,500</option>
+                                        <option>$7,500 to $12,000</option>
+                                        <option>$12,000 or more</option>
+                                   </select>
+                    </div>
+
+                    <div class="col-md-12 col-sm-12">
+                        <textarea class="form-control" rows="6" placeholder="Your requirements" id="cf-message" name="cf-message" required=""></textarea>
+                    </div>
+
+                    <div class="col-md-4 col-sm-12">
+                        <input type="submit" class="form-control" name="submit" value="Send Message">
+                    </div>
+
+                </form>
+            </div>
+
+            <div class="col-md-4 col-sm-4">
+                <div class="google-map">
+                    <!-- <img src="{% static 'sewabus/images/about-image.jpg' %}" class="img-responsive" alt="Work"> -->
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3953.807882219403!2d110.46521681540834!3d-7.703754978440717!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a5d5bc5be6365%3A0x72b308d8e5f3501a!2sBima%20Hackers&#39;%20Village!5e0!3m2!1sid!2sid!4v1607582171072!5m2!1sid!2sid"
+                        width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                    <h3>CEO BOCBUS</h3>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- FOOTER -->
+<footer data-stellar-background-ratio="0.5">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-md-5 col-sm-12">
+                <div class="footer-thumb footer-info">
+                    <h2>BOCBUS</h2>
+                    <p>BOCBUS Merupakan singkatan dari Boking Bus, Boking Bus merupakan aplikasi yang menyediakan untuk pemesanan bus secara simpel</p>
+                </div>
+            </div>
+
+            <div class="col-md-2 col-sm-4">
+                <div class="footer-thumb">
+                    <h2>Company</h2>
+                    <ul class="footer-link">
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Join our team</a></li>
+                        <li><a href="#">Read Blog</a></li>
+                        <li><a href="#">Press</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="col-md-2 col-sm-4">
+                <div class="footer-thumb">
+                    <h2>Services</h2>
+                    <ul class="footer-link">
+                        <li><a href="#">Pricing</a></li>
+                        <li><a href="#">Documentation</a></li>
+                        <li><a href="#">Support</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="col-md-3 col-sm-4">
+                <div class="footer-thumb">
+                    <h2>Find us</h2>
+                    <p>123 Grand Rama IX, <br> Krung Thep Maha Nakhon 10400</p>
+                </div>
+            </div>
+
+            <div class="col-md-12 col-sm-12">
+                <div class="footer-bottom">
+                    <div class="col-md-6 col-sm-5">
+                        <div class="copyright-text">
+                            <p>BOCBUS &copy; Kelompok Fucek</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-sm-7">
+                        <div class="phone-contact">
+                            <p>Kontak <span>: 0857919023</span></p>
+                        </div>
+                        <ul class="social-icon">
+                            <li>
+                                <a href="https://www.facebook.com/templatemo" class="fa fa-facebook-square" attr="facebook icon"></a>
+                            </li>
+                            <li>
+                                <a href="#" class="fa fa-twitter"></a>
+                            </li>
+                            <li>
+                                <a href="#" class="fa fa-instagram"></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</footer>
+{% endblock %}

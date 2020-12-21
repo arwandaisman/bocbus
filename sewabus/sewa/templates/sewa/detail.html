@@ -1,0 +1,97 @@
+{% extends 'base.html' %} {% load static %} {% block content %}
+<div>
+
+    <body bgcolor="">
+
+
+        <br><br><br>
+        <div class="container">
+            <h1 style="background-color:DodgerBlue;">Detail Bus</h1>
+            <ul class="list-group list-group-flush">
+
+
+                <h1>{{d.judul}}</h1>
+                <div class="w3-display-container mySlides">
+                    <center><img src="{{d.gambar.url}}" width="460" height="300" /></center>
+                    <button class="w3-button w3-display-left w3-blue" onclick="plusDivs(-1)">&#10094;</button>
+                    <button class="w3-button w3-display-right w3-blue" onclick="plusDivs(1)">&#10095;</button>
+                </div>
+
+                <div class="row gallery">
+                    {% for p in image %}
+                    <img src="{{ p.image.url }}" alt="Image Not Found" width="300px"> {% endfor %}
+                </div>
+
+                {% for d in data %}
+
+                <br><br>
+                <li class="list-group-item">Merk Bus : {{d.merk_seri_bus}}</li>
+                <li class="list-group-item">Nomor Plat : {{d.no_plat}}</li>
+                <li class="list-group-item">Kategori : {{d.kategori}}</li>
+                <li class="list-group-item">Harga/12jam : RP {{d.harga_12jam}},-</li>
+                <li class="list-group-item">Harga/24jam : RP {{d.harga_fullday}},-</li>
+                <li class="list-group-item">Jumlah Kursi : {{d.jml_kursi}}</li>
+                <li class="list-group-item">Jumlah Bus yang tersedia : {{d.jml_bus}}</li>
+
+
+                <li class="list-group-item">AC :
+                    <!-- {{d.ac}} -->
+                    {% if not d.ac %} Tidak Ada {% else %} Ada {% endif %}
+
+                </li>
+                <li class="list-group-item">DVD :
+                    <!-- {{d.dvd}} -->
+                    {% if not d.dvd %} Tidak Ada {% else %} Ada {% endif %}
+                </li>
+                <li class="list-group-item">Toilet :
+                    <!-- {{d.toilet}} -->
+                    {% if not d.toilet %} Tidak Ada {% else %} Ada {% endif %}
+                </li>
+                <li class="list-group-item">Stop Kontak :
+                    <!-- {{d.stop_kontak}} -->
+                    {% if not d.kontak %} Tidak Ada {% else %} Ada {% endif %}
+                </li>
+                <li class="list-group-item">Sabuk Pengaman :
+                    <!-- {{d.sabuk_pengaman}} -->
+                    {% if not d.sabuk_pengaman %} Tidak Ada {% else %} Ada {% endif %}
+                </li>
+                <li class="list-group-item">Bagasi :
+                    <!-- {{d.bagasi}} -->
+                    {% if not d.bagasi %} Tidak Ada {% else %} Ada {% endif %}
+                </li>
+                <li class="list-group-item">WIFI :
+                    <!-- {{d.wifi}} -->
+                    {% if not d.wifi %} Tidak Ada {% else %} Ada {% endif %}
+                </li>
+                <li class="list-group-item">TV :
+                    <!-- {{d.tv}} -->
+                    {% if not d.tv %} Tidak Ada {% else %} Ada {% endif %}
+                </li>
+                <li class="list-group-item">Bantal :
+                    <!-- {{d.bantal}} -->
+                    {% if not d.bantal %} Tidak Ada {% else %} Ada {% endif %}
+                </li>
+                <li class="list-group-item">Selimut :
+                    <!-- {{d.selimut}} -->
+                    {% if not d.selimut %} Tidak Ada {% else %} Ada {% endif %}
+
+                </li>
+                <li class="list-group-item">Smoking Area :
+                    <!-- {{d.smoking_area}} -->
+                    {% if not d.smoking_area %} Tidak Ada {% else %} Ada {% endif %}
+                </li>
+                <li class="list-group-item">Keterangan Tambahan : {{d.tambahan}}
+                </li>
+                </li>
+                {% endfor %}
+            </ul>
+            <div class="card-body">
+                <a href="{% url 'tambah'%}" style="margin-left: 280px;" class="btn btn-danger" class="card-link">Pesan</a><br><br>
+                <a href="/sewa/" style="margin-left: 280px;" class="btn btn-danger" class="card-link">Kembali</a>
+            </div>
+        </div>
+
+
+    </body>
+</div>
+{% endblock %}

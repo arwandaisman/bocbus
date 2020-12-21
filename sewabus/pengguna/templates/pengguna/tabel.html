@@ -1,0 +1,94 @@
+{% extends 'basesatu.html' %} {% load static %} {% block content %}
+
+<div class="content">
+    <div class="container-fluid">
+        <div class="truexs">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-primary">
+                        <h4 class="card-title ">Data Pemsan Bus</h4>
+                        <p class="card-category"> Data Bus Yang Sudah Dipesan</p>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead class=" text-primary">
+                                    <tr>
+                                        <th>Nama Pemesan </th>
+                                        <th>No HP </th>
+                                        <th>Email</th>
+                                        <th>Tanggal Booking</th>
+                                        <th>Titik Penjemputan</th>
+                                        <th>Action</th>
+
+                                    </tr>
+                                    <tbody>
+                                        {% for d in data %}
+                                        <tr>
+                                            <td>{{d.nama_pemesan}}</td>
+                                            <td>{{d.no_hp}}</td>
+                                            <td>{{d.email}}</td>
+                                            <td>{{d.tanggal_mulai}} - {{d.tanggal_selesai}}</td>
+                                            <td>{{d.titik_penjemputan}}</td>
+                                            <td style="text-align: center;">
+                                                <a class="btn btn-sm btn-primary" href="/tabel{{d.id}}/">view</a>
+                                                <a class="btn btn-sm btn-warning" href="/darah{{d.id}}/edit">edit</a>
+                                                <!-- <a class="btn btn-sm btn-danger" href="/darah{{d.id}}/hapus"><i
+                                    class="glyphicon glyphicon-trash"></i></a> -->
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                    {% endfor %}
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- <div class="col-md-12">
+                <div class="card card-plain">
+                    <div class="card-header card-header-primary">
+                        <h4 class="card-title mt-0"> Table on Plain Background</h4>
+                        <p class="card-category"> Here is a subtitle for this table</p>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-hover">
+                                <tr>
+                                    <th>No</th>
+                                    <th>Nama </th>
+                                    <th>Jenis Kelamin</th>
+                                    <th>Alamat</th>
+                                    <th>Merk</th>
+                                    <th>No Hp</th>
+                                    <th>Action</th>
+                                </tr>
+                                <tbody>
+                                    {% for d in data %}
+                                    <tr>
+                                        <td>{{d.no_pasien}}</td>
+                                        <td>{{d.nama_pasien}}</td>
+                                        <td>{{d.jenis_kelamin}}</td>
+                                        <td>{{d.alamat_pasien}}</td>
+                                        <td>{{d.no_hp}}</td>
+                                        <td style="text-align: center;">
+                                            <a class="btn btn-sm btn-primary" href="/darah{{d.id}}/">view</a>
+                                            <a class="btn btn-sm btn-warning" href="/darah{{d.id}}/edit">edit</a>
+                                            <a class="btn btn-sm btn-danger" href="/darah{{d.id}}/hapus"><i
+                                  class="glyphicon glyphicon-trash"></i></a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                                {% endfor %}
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+        </div>
+    </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends 'base.html' %} {% load static %} {% block content %}
+<div>
+
+    <body bgcolor="">
+
+
+        <br><br><br>
+        <div class="container">
+            <h1 style="background-color:DodgerBlue;">
+                Pesanan Anda
+            </h1>
+            <h5>Isi Data Pesanan Anda</h5>
+
+            <form method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                <br> {{ form.as_p }}
+                <input type="submit" value="Submit" class="btn btn-outline-sucsess">
+
+
+            </form>
+
+
+        </div>
+    </body>
+</div>
+{% endblock %}
