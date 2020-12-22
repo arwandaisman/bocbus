@@ -67,6 +67,7 @@ def user(request):
         if formx.is_valid() and formset.is_valid():
             post = formx.save(commit=False)
             post.po_id = request.user
+            post.judul= request.POST.get('judul')
             # post.tanggal= request.POST.get('tanggal')
             post.save()
 

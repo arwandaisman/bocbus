@@ -1,4 +1,4 @@
-{% extends 'basesatu.html' %} {% load static %} {% block content %}
+{% extends 'basesatu.html' %} {% load static %} {% block content %} {%load crispy_forms_tags %}
 
 <body class="">
 
@@ -16,10 +16,13 @@
 
                             <form method="POST" enctype="multipart/form-data">
                                 {% csrf_token %}
-                                <!-- User Id : -->
-                                <!-- <input type="number" class="form-control" name="po_id" value="{{user.id}}" disabled="disabled"> -->
-                                <br> {{ formx.as_p }}
-                                <br> {{ formset.as_p }}
+                                <h6>User ID :</h6>
+                                <input type="number" class="form-control" name="po_id" value="{{user.id}}" disabled="disabled">
+                                <br>
+                                <h6>Judul </h6>
+                                <input type="text" class="form-control" name="judul" placeholder="" required="required">
+                                <br> {{ formx|crispy }}
+                                <br> {{ formset|crispy }}
                                 <br>
                                 <input type="submit" value="Submit" class="btn btn-outline-sucsess">
 

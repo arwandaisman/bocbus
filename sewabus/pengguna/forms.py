@@ -9,7 +9,7 @@ class BusForm(forms.ModelForm):
    
     class Meta: 
         model = DataBus 
-        exclude = ['po_id']
+        exclude = ['po_id', 'judul']
         # fields = "__all__"
 
     # widgets ={
