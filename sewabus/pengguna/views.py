@@ -32,15 +32,46 @@ def detail(request, id):
     }   
     return render(request,'pengguna/detail.html',data) 
 
-def edit(request,id):
-    context ={}
-    obj = get_object_or_404(DataBus, id = id)
-    form = EditBusForm(request.POST or None, instance = obj)
-    if form.is_valid(): 
-        form.save() 
-        return redirect('index')
-    context["form"] = form
-    return render(request, "pengguna/edit.html", context)
+def edit(request, id):
+    edt = models.DataBus.objects.get(id=id)
+    # tampil = models.DataBus.objects.filter(pk=id).first()
+    if request.POST:
+        form = EditBusForm(request.POST, instance=edt)
+        if form.is_valid():
+            form.save()
+
+            edt.judul= request.POST.get('judul')
+            edt.ac= request.POST.get('ac')
+            edt.dvd= request.POST.get('dvd')
+            edt.toilet= request.POST.get('toilet')
+            edt.stop_kontak= request.POST.get('stop_kontak')
+            edt.sabuk_pengaman= request.POST.get('sabuk_pengaman')
+            edt.bagasi= request.POST.get('bagasi')
+            edt.wifi= request.POST.get('wifi')
+            edt.tv= request.POST.get('tv')
+            edt.bantal= request.POST.get('bantal')
+            edt.selimut= request.POST.get('selimut')
+            edt.smoking_area= request.POST.get('smoking_area')
+            edt.tambahan= request.POST.get('tambahan')
+            edt.save()
+            return redirect('index')
+    else:
+        form = EditBusForm(instance=edt)
+        konteks = {
+            'form':form,
+            'edt':edt
+        }
+    return render(request, "pengguna/edit.html", konteks)
+
+# def edit(request,id):
+#     context ={}
+#     obj = get_object_or_404(DataBus, id = id)
+#     form = EditBusForm(request.POST or None, instance = obj)
+#     if form.is_valid(): 
+#         form.save() 
+#         return redirect('index')
+#     context["form"] = form
+#     return render(request, "pengguna/edit.html", context)
 
 def fasilitas(request,id):
     tampil = models.Databus.objects.filter(pk=id).first()
@@ -74,6 +105,7 @@ def fasilitas(request,id):
 
 def user(request): 
     ImageFormSet = modelformset_factory(Images, fields = ('image',), extra=4)
+    # tampil = models.DataBus.objects.filter(pk=id).first()
     if request.method == 'POST':
         formx = BusForm(request.POST)
         print(request.POST)
@@ -113,6 +145,7 @@ def user(request):
         formset = ImageFormSet(queryset=Images.objects.none())
 
     context = {
+        # 'data':tampil,
         'formx': formx, 
         'formset': formset
     }

@@ -33,17 +33,20 @@
 </div> -->
                             <form method="POST" enctype="multipart/form-data">
                                 {% csrf_token %}
-                                <h6>User ID :</h6>
-                                <input type="number" class="form-control" name="po_id" value="{{user.id}}" disabled="disabled">
+                                <!-- <p>
+                                    <b><h4>Nama Perusahaan :</h4></b>
+                                    <h4 class="upper"><b><u>{{edt.po_id}}</u></b></h4>
+                                </p> -->
+                                <!-- <input type="number" class="form-control" name="po_id" value="{{edt.po_id}}" disabled="disabled"> -->
                                 <br>
                                 <h6>Judul </h6>
-                                <input type="text" class="form-control" name="judul" placeholder="" required="required">
+                                <input type="text" class="form-control" name="judul" placeholder="" required="required" value="{{edt.judul}}">
                                 <br> {{ form|crispy }}
                                 <br>
-                                <h6>Fasilitas : </h6>
+                                <b>Isikan Kembali Fasilitas : </b><br>
 
 
-                                <input type="checkbox" id="ac" name="ac" value="ac">
+                                <input type="checkbox" id="ac" name="ac" value="{{edt.ac}}">
                                 <label for="ac"> AC</label><br>
 
 
@@ -79,10 +82,10 @@
 
                                 <br>
                                 <label for="tambah">Tambahan:</label> <br>
-                                <textarea id="tambah" name="tambahan" rows="12" cols="100"></textarea>
-                                <br>
+                                <textarea id="tambah" name="tambahan" rows="12" cols="100">{{edt.tambahan}}</textarea>
+                                <!-- <br>
                                 <br> {{ formset.as_p }}
-                                <br>
+                                <br> -->
                                 <!-- <a href="<id>/fasilitas/"> -->
                                 <input type="submit" value="Submit" class="btn btn-primary">
                                 <!-- </a> -->
