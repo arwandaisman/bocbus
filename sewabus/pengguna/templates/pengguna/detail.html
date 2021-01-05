@@ -56,7 +56,7 @@
                             </li>
                             <li class="list-group-item">Stop Kontak :
                                 <!-- {{data.stop_kontak}} -->
-                                {% if not data.kontak %} Tidak Ada {% else %} Ada {% endif %}
+                                {% if not data.stop_kontak %} Tidak Ada {% else %} Ada {% endif %}
                             </li>
                             <li class="list-group-item">Sabuk Pengaman :
                                 <!-- {{data.sabuk_pengaman}} -->
@@ -97,7 +97,7 @@
                         <div class="row gallery">
                             {% for p in image %}
                             <img src="{{ p.image.url }}" alt="Image Not Found" width="300px">
-                            <p>{{p.t_id}}</p>
+                            <p> </p>
                             {% endfor %}
                         </div>
                         <div class="card-body">

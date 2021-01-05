@@ -12,6 +12,16 @@
                             <p class="card-category">Isi Semua</p>
                         </div>
                         <div class="card-body">
+                            <!-- {% if registered %}
+                            <h6>User ID :</h6>
+                            <input type="number" class="form-control" name="po_id" value="{{user.id}}" disabled="disabled">
+                            <br>
+                            <h6>Judul </h6>
+                            <input type="text" class="form-control" name="judul" value="{{tampil.judul}}" required="required" disabled="disabled">
+                            <br> {{ form.as_p }} -->
+
+                            <!-- <input type="submit" value="Submit" class="btn btn-primary"> -->
+                            <!-- <a href="/pengguna/{{tampil.obj}}/fasilitas" class="border-btn2 border-btn4">Simpan</a> {% else %} -->
 
 
                             <form method="POST" enctype="multipart/form-data">
@@ -22,12 +32,60 @@
                                 <h6>Judul </h6>
                                 <input type="text" class="form-control" name="judul" placeholder="" required="required">
                                 <br> {{ formx|crispy }}
-                                <br> {{ formset|crispy }}
                                 <br>
-                                <input type="submit" value="Submit" class="btn btn-outline-sucsess">
+                                <h6>Fasilitas : </h6>
+
+
+                                <input type="checkbox" id="ac" name="ac" value="ac">
+                                <label for="ac"> AC</label><br>
+
+
+                                <input type="checkbox" id="dvd" name="dvd" value="dvd">
+                                <label for="dvd"> DVD Player </label><br>
+
+                                <input type="checkbox" id="toilet" name="toilet" value="toilet">
+                                <label for="toilet"> Toilet</label><br>
+
+                                <input type="checkbox" id="stop_kontak" name="stop_kontak" value="stop_kontak">
+                                <label for="stop_kontak"> Stop Kontak</label><br>
+
+                                <input type="checkbox" id="sabuk_pengaman" name="sabuk_pengaman" value="sabuk_pengaman">
+                                <label for="sabuk_pengaman"> Sabuk Pengaman </label><br>
+
+                                <input type="checkbox" id="bagasi" name="bagasi" value="bagasi">
+                                <label for="bagasi"> Bagasi</label><br>
+
+                                <input type="checkbox" id="wifi" name="wifi" value="wifi">
+                                <label for="wifi"> WIFI</label><br>
+
+                                <input type="checkbox" id="tv" name="tv" value="tv">
+                                <label for="tv"> TV </label><br>
+
+                                <input type="checkbox" id="bantal" name="bantal" value="bantal">
+                                <label for="bantal"> Bantal</label><br>
+
+                                <input type="checkbox" id="selimut" name="selimut" value="selimut">
+                                <label for="selimut"> Selimut</label><br>
+
+                                <input type="checkbox" id="smoking_area" name="smoking_area" value="smoking_area">
+                                <label for="smoking_area"> Smoking Area</label><br>
+
+                                <br>
+                                <label for="tambah">Tambahan:</label> <br>
+                                <textarea id="tambah" name="tambahan" rows="12" cols="100"></textarea>
+                                <br>
+                                <br> {{ formset.as_p }}
+                                <br>
+                                <!-- <a href="<id>/fasilitas/"> -->
+                                <input type="submit" value="Submit" class="btn btn-primary">
+                                <!-- </a> -->
+
+
+
 
 
                             </form>
+                            <!-- {% endif %} -->
                         </div>
                     </div>
                 </div>

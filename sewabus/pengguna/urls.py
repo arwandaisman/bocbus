@@ -13,6 +13,8 @@ urlpatterns = [
     path('<id>/detail',views.detail, name='detail'),
     path('<id>/hapus',views.hapus, name='hapus'),
     path('<id>/edit',views.edit, name='edit'),
+    path('<id>/fasilitas',views.fasilitas, name='fasilitas'),
     path('profil/', views.profil, name='profil'),
+    path('harga/',views.harga, name='harga'),
 
 ]

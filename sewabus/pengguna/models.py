@@ -39,17 +39,28 @@ class DataBus(models.Model):
     harga_fullday = models.IntegerField(default=1000000)
     jml_kursi = models.IntegerField(default=None)
     jml_bus= models.IntegerField(default=None)
-    ac = models.BooleanField("ac", default=False)
-    dvd = models.BooleanField("DVD/Video", default=False)
-    toilet = models.BooleanField("Toilet", default=False)
-    stop_kontak = models.BooleanField("Stop Kontak", default=False)
-    sabuk_pengaman = models.BooleanField("Sabuk Pengaman", default=False)
-    bagasi = models.BooleanField("Bagasi", default=False)
-    wifi = models.BooleanField("WIFI", default=False)
-    tv = models.BooleanField("TV", default=False)
-    bantal = models.BooleanField("Bantal", default=False)
-    selimut = models.BooleanField("Selimut", default=False)
-    smoking_area = models.BooleanField("Smoking Area", default=False)
+    ac = models.CharField(max_length = 15,default=None, blank=True, null=True)
+    dvd = models.CharField(max_length = 15,default=None, blank=True, null=True)
+    toilet = models.CharField(max_length = 15,default=None, blank=True, null=True)
+    stop_kontak = models.CharField(max_length = 15,default=None, blank=True, null=True)
+    sabuk_pengaman = models.CharField(max_length = 15,default=None, blank=True, null=True)
+    bagasi = models.CharField(max_length = 15,default=None, blank=True, null=True)
+    wifi = models.CharField(max_length = 15,default=None, blank=True, null=True)
+    tv = models.CharField(max_length = 15,default=None, blank=True, null=True)
+    bantal = models.CharField(max_length = 15,default=None, blank=True, null=True)
+    selimut = models.CharField(max_length = 15,default=None, blank=True, null=True)
+    smoking_area = models.CharField(max_length = 15,default=None, blank=True, null=True)
+    # ac = models.BooleanField("ac", default=False)
+    # dvd = models.BooleanField("DVD/Video", default=False)
+    # toilet = models.BooleanField("Toilet", default=False)
+    # stop_kontak = models.BooleanField("Stop Kontak", default=False)
+    # sabuk_pengaman = models.BooleanField("Sabuk Pengaman", default=False)
+    # bagasi = models.BooleanField("Bagasi", default=False)
+    # wifi = models.BooleanField("WIFI", default=False)
+    # tv = models.BooleanField("TV", default=False)
+    # bantal = models.BooleanField("Bantal", default=False)
+    # selimut = models.BooleanField("Selimut", default=False)
+    # smoking_area = models.BooleanField("Smoking Area", default=False)
     # img = models.ImageField(upload_to='gambar/',blank=True)
     tambahan = models.TextField(default=None,null=True)
     po_id = models.ForeignKey(User, on_delete = models.DO_NOTHING,related_name='po_id',)
@@ -63,7 +74,37 @@ class Images(models.Model):
     image = models.ImageField(upload_to = 'gambar/', blank=True, null = True)
     def __str__(self):
         return self.post.no_plat + " Image"
+
+
+
+# class Provinsi(models.Model):
+#     nama = models.CharField(max_length=30)
+
+#     def __str__(self):
+#         return self.nama
+
+class Kabupaten(models.Model):
+    # provinsi = models.ForeignKey(Provinsi, on_delete=models.CASCADE)
+    nama = models.CharField(max_length=30)
+
+    def __str__(self):
+        return self.nama
     
+class Biaya(models.Model):
+    kabupaten = (
+        ('Sleman', 'Sleman'), ('Kulon_Progo', 'KulonProgo')
+    )
+
+    nama = models.ForeignKey(DataBus, default=None, on_delete=models.CASCADE, related_name= 'biaya')
+    # provinsi_asal =  models.ForeignKey(Provinsi, on_delete=models.SET_NULL, null=True)
+    kabupaten_asal = models.CharField(max_length = 100,choices=kabupaten,default=None, null=True)
+    # provinsi_tujuan = models.ForeignKey(Provinsi, on_delete=models.SET_NULL, null=True)
+    kabupaten_tujuan = models.CharField(max_length = 100,choices=kabupaten,default=None, null=True)
+    harga = models.IntegerField(default=500000)
+    def __str__(self): 
+        return self.nama
+
+
 
 class Profil(models.Model):
     nama_perusahaan = models.CharField(max_length = 100,default=None)
