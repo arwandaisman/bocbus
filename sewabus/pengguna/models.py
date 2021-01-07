@@ -1,18 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
 
-# Create your models here.
-class Hotel(models.Model): 
-    name = models.CharField(max_length=50) 
-    hotel_Main_Img = models.ImageField(upload_to='images/') 
-
-# class Jenis(models.Model):
-#     jenis = models.CharField(max_length = 10)
-
-#     def __str__(self):
-#         return self.jenis 
-
-
 class DataBus(models.Model):
     jenis_bus = (
         ('kecil', 'Kecil'),
@@ -75,36 +63,14 @@ class Images(models.Model):
     def __str__(self):
         return self.post.judul + " Image"
 
-# class Ketersediaan(models.Model):
-#     sedia = model.ForeignKey(DataBus,  default=None, on_delete=models.CASCADE, related_name= 'sedia')
+class Ketersediaan(models.Model):
+    sedia = models.CharField( null=True, max_length=50)
+    tanggal_mulai = models.DateField(default=None)
+    tanggal_selesai = models.DateField(default=None)
+    nama_penyewa = models.CharField( default=None, max_length=50)
+    no_hp_penyewa = models.CharField( default=None, max_length=50)
+    nik = models.CharField( default=None, max_length=50)
     
-
-# class Provinsi(models.Model):
-#     nama = models.CharField(max_length=30)
-
-#     def __str__(self):
-#         return self.nama
-
-class Kabupaten(models.Model):
-    # provinsi = models.ForeignKey(Provinsi, on_delete=models.CASCADE)
-    nama = models.CharField(max_length=30)
-
-    def __str__(self):
-        return self.nama
-    
-class Biaya(models.Model):
-    kabupaten = (
-        ('Sleman', 'Sleman'), ('Kulon_Progo', 'KulonProgo')
-    )
-
-    nama = models.ForeignKey(DataBus, default=None, on_delete=models.CASCADE, related_name= 'biaya')
-    # provinsi_asal =  models.ForeignKey(Provinsi, on_delete=models.SET_NULL, null=True)
-    kabupaten_asal = models.CharField(max_length = 100,choices=kabupaten,default=None, null=True)
-    # provinsi_tujuan = models.ForeignKey(Provinsi, on_delete=models.SET_NULL, null=True)
-    kabupaten_tujuan = models.CharField(max_length = 100,choices=kabupaten,default=None, null=True)
-    harga = models.IntegerField(default=500000)
-    def __str__(self): 
-        return self.nama
 
 
 

@@ -4,8 +4,8 @@ from django.contrib import messages
 from django.conf import settings
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
-from .forms import BusForm, BusForm2, EditBusForm, BiayaBusForm
-from .models import DataBus, Images, Biaya
+from .forms import BusForm, EditBusForm, SediaForm
+from .models import DataBus, Images
 from django.forms import modelformset_factory
 from sewa.models import Sewa
 
@@ -34,7 +34,6 @@ def detail(request, id):
 
 def edit(request, id):
     edt = models.DataBus.objects.get(id=id)
-    # tampil = models.DataBus.objects.filter(pk=id).first()
     if request.POST:
         form = EditBusForm(request.POST, instance=edt)
         if form.is_valid():
@@ -63,44 +62,40 @@ def edit(request, id):
         }
     return render(request, "pengguna/edit.html", konteks)
 
-# def edit(request,id):
-#     context ={}
-#     obj = get_object_or_404(DataBus, id = id)
-#     form = EditBusForm(request.POST or None, instance = obj)
-#     if form.is_valid(): 
-#         form.save() 
-#         return redirect('index')
-#     context["form"] = form
-#     return render(request, "pengguna/edit.html", context)
+def datasewa(request, id):
+    tampil = models.Ketersediaan.objects.filter(sedia=id)
+    # bus = models.DataBus.objects.filter(pk=id).first()
+    konteks = {
+        'data':tampil,
+        # 'bus':bus
+    }   
+    return render(request, "pengguna/data_ketersediaan.html", konteks)
 
-def fasilitas(request,id):
-    tampil = models.Databus.objects.filter(pk=id).first()
-    obj = models.Databus.objects.get(id=id)
-    if request.method == 'POST' :
+
+
+def ketersediaan(request, id):
+    data = models.DataBus.objects.get(id=id)
+    s = id
+    if request.method == 'POST':
+        form = SediaForm(data=request.POST)
         if form.is_valid():
-            form = BusForm2(request.POST, instance=obj)
-            post.judul= request.POST.get('judul')
-            post.ac= request.POST.get('ac')
-            post.dvd= request.POST.get('dvd')
-            post.toilet= request.POST.get('toilet')
-            post.stop_kontak= request.POST.get('stop_kontak')
-            post.sabuk_pengaman= request.POST.get('sabuk_pengaman')
-            post.bagasi= request.POST.get('bagasi')
-            post.wifi= request.POST.get('wifi')
-            post.tv= request.POST.get('tv')
-            post.bantal= request.POST.get('bantal')
-            post.selimut= request.POST.get('selimut')
-            post.smoking_area= request.POST.get('smoking_area')
-            post.tambahan= request.POST.get('tambahan')
-            form.save()
-            return redirect('index')
+            post = form.save()
+            post.sedia = s
+            # form.tanggal_mulai = request.POST.get('tanggal_mulai')
+            # form.tanggal_selesai = request.POST.get('tanggal_selesai')
+            post.save()
+        
+        else:
+            print(form.errors)
+        return redirect('index')
     else:
-        form = BusForm2()
-    context = {
-        'tampil': tampil,
-        'form': form,
+        form = SediaForm()
+    konteks = {
+        'form':form,
+        # 'data' : data
     }
-    return render(request, "pengguna/fasilitas.html", context)
+    return render(request, "pengguna/ketersediaan.html", konteks)
+
 
 
 def user(request): 
@@ -129,7 +124,6 @@ def user(request):
             # post.tanggal= request.POST.get('tanggal')
             post.save()
 
-
             for form in formset:
                 try:
                     # image = form['image']
@@ -152,22 +146,6 @@ def user(request):
     return render(request, 'pengguna/user.html', context)
 
 
-def biaya(request):
-    if request.method == 'POST' :
-        form = BiayaBusForm(request.POST)
-        form.save()
-        return redirect('index')
-    else:
-        form = BiayaBusForm()
-    context = {
-        'form': form,
-    }
-    return render(request, "pengguna/harga.html", context)
-
-def harga (request):
-    return render(request, 'pengguna/harga.html')
-
-
 def profil (request):
     return render(request, 'pengguna/profil.html')
 
@@ -176,6 +154,13 @@ def hapus(request, id):
     konteks = {}
     tampil = models.DataBus.objects.filter(pk=id).delete()
     return redirect('index')
+
+
+def hapussewa(request, id):
+    konteks = {}
+    tampil = models.Ketersediaan.objects.filter(sedia=id).delete()
+    return redirect('index')
+
 
 def tabel (request):
     tampil = Sewa.objects.all()

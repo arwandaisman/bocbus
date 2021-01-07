@@ -8,7 +8,7 @@
         <div class="container-fluid">
             <center>
                 <h1>Selamat Datang Pada Menu Admin Bus</h1>
-                <h3>Data Semua Bus</h3>
+                <h3>Data Penyewa </h3>
             </center>
             <div>
                 <div>
@@ -17,7 +17,7 @@
                             <thead>
                                 <tr>
                                     <td style="text-align: center;">
-                                        <a class="btn btn-sm btn-primary" href="user/">Tambah</a>
+                                        <a class="btn btn-sm btn-primary" href="ketersediaan/">Tambah</a>
                                     </td>
                                 </tr>
                             </thead>
@@ -27,35 +27,30 @@
                                 </thead>
                                 <thead>
                                     <tr style="text-align: center;">
-                                        <th>ID</th>
                                         <th>Judul</th>
-                                        <th>Merk dan Seri Bus</th>
-                                        <!-- <th>Tanggal Pembuatan Bus</th> -->
-                                        <th>Nomor Plat</th>
-                                        <th>Tahun Pembuatan</th>
-                                        <th>Jumlah Kursi</th>
-                                        <th>Harga/12Jam</th>
-                                        <th>Harga/hari</th>
+                                        <!-- <th>Judul</th> -->
+                                        <th>Tanggal Mulai Sewa</th>
+                                        <th>Tanggal Selesai Sewa</th>
+                                        <th>Nama Penyewa</th>
+                                        <th>Nomor Hp Penyewa</th>
+                                        <th>NIK</th>
                                         <th>Aksi</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     {% for d in data %}
                                     <tr>
-                                        <td style="text-align: center;">{{d.id}}</td>
-                                        <td>{{d.judul}}</td>
-                                        <td>{{d.merk_seri_bus}}</td>
-                                        <!-- <td>{{d.tanggal_pembuatan}}</td> -->
-                                        <td>{{d.no_plat}}</td>
-                                        <td>{{d.tahun_pembuatan}}</td>
-                                        <td>{{d.jml_kursi}}</td>
-                                        <td>Rp {{d.harga_12jam}},-</td>
-                                        <td>Rp {{d.harga_fullday}},-</td>
+                                        <!-- <td style="text-align: center;">{{d.id}}</td> -->
+                                        <td style="text-align: center;">{{d.sedia}}</td>
+                                        <td>{{d.tanggal_mulai}}</td>
+                                        <td>{{d.tanggal_selesai}}</td>
+                                        <td>{{d.nama_penyewa}}</td>
+                                        <td>{{d.no_hp_penyewa}}</td>
+                                        <td>{{d.nik}}</td>
                                         <td style="text-align: center;">
-                                            <a type="button" class="btn btn-primary" href="{{d.id}}/detail">Detail</a>
+                                            <!-- <a type="button" class="btn btn-primary" href="{{d.id}}/detail">Detail</a> -->
                                             <a type="button" class="btn btn-warning" href="{{d.id}}/edit">Edit</a>
-                                            <a type="button" class="btn btn-danger" href="{{d.id}}/hapus">Delete</a>
-                                            <a type="button" class="btn btn-danger" href="{{d.id}}/data_ketersediaan">Ketersediaan</a>
+                                            <a type="button" class="btn btn-danger" href="{{d.id}}/hapussewa">Delete</a>
 
                                         </td>
                                     </tr>

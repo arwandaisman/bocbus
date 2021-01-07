@@ -1,7 +1,7 @@
 
 from .forms import *
 from django import forms
-from .models import DataBus,Images, Biaya
+from .models import DataBus,Images, Ketersediaan
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
   
@@ -22,13 +22,6 @@ class BusForm(forms.ModelForm):
 
     # }
 
-class BusForm2(forms.ModelForm): 
-   
-    class Meta: 
-        model = DataBus 
-        fields = ['ac','dvd', 'toilet','stop_kontak','sabuk_pengaman','bagasi', 'wifi', 'tv', 'bantal', 'selimut', 'smoking_area']
-
-
 
 class EditBusForm(forms.ModelForm): 
    
@@ -37,9 +30,13 @@ class EditBusForm(forms.ModelForm):
         exclude = ['po_id', 'judul','tambahan', 'ac','dvd', 'toilet','stop_kontak','sabuk_pengaman','bagasi', 'wifi', 'tv', 'bantal', 'selimut', 'smoking_area']
 
 
-class BiayaBusForm(forms.ModelForm): 
+
+class SediaForm(forms.ModelForm): 
    
     class Meta: 
-        model = Biaya 
-        fields = "__all__"
-
+        model = Ketersediaan 
+        exclude = [
+            'sedia',
+            # 'tanggal_mulai',
+            # 'tanggal_selesai'
+            ]

@@ -1,0 +1,69 @@
+{% extends 'basesatu.html' %} {% load static %} {% block content %} {%load crispy_forms_tags %}
+
+
+<body class="">
+
+    <!-- End Navbar -->
+    <div class="content">
+        <div class="container-fluid">
+            <center>
+                <h1>Selamat Datang Pada Menu Admin Bus</h1>
+                <h3>Isikan semua data bus yang disewa</h3>
+            </center>
+            <div>
+                <div>
+                    <div>
+                        <form method="POST" enctype="multipart/form-data">
+                            {% csrf_token %}
+                            <!-- 
+                            <h6>Judul Bus</h6>
+                            <input type="text" class="form-control" name="judul" placeholder="" value="{{data.judul}}" required="required" disabled>
+
+                            <br>
+                            <br>
+                            <table>
+                                <tr>
+                                    <td>
+                                        <label for="tanggal_mulai">Tanggal Mulai Sewa: </label>
+                                    </td>
+                                    <td>
+                                        <input type="date" id="tanggal_mulai" name="tanggal_mulai" value="tanggal_mulai">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <label for="tanggal_selesai">Tanggal Selesai Sewa: </label>
+                                    </td>
+                                    <td>
+                                        <input type="date" id="tanggal_selesai" name="tanggal_selesai">
+                                    </td>
+                                </tr>
+                            </table> -->
+
+
+
+                            <br> {{ form|crispy }}
+                            <br>
+
+                            <!-- <a href="<id>/fasilitas/"> -->
+                            <input type="submit" value="Submit" class="btn btn-primary">
+                            <!-- </a> -->
+
+                        </form>
+                    </div>
+                </div>
+                <footer class="footer">
+                    <div class="container-fluid">
+                        <div class="copyright float-right">
+                            &copy;
+                            <script>
+                                document.write(new Date().getFullYear())
+                            </script>,BOCBUS <i class="material-icons">favorite</i> by --
+                        </div>
+                    </div>
+                </footer>
+            </div>
+        </div>
+
+
+        {% endblock %}

@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from pengguna.models import DataBus, Images
+from pengguna.models import DataBus, Images, Ketersediaan
 
 
 
@@ -14,5 +14,9 @@ class AdminBus(admin.ModelAdmin):
 class AdminImage(admin.ModelAdmin):
     list_display = ['post','image']
 
+class AdminKetersediaan(admin.ModelAdmin):
+    list_display = ['sedia','tanggal_mulai', 'tanggal_selesai', 'nama_penyewa', 'no_hp_penyewa', 'nik']
+
 admin.site.register(DataBus, AdminBus)
 admin.site.register(Images, AdminImage)
+admin.site.register(Ketersediaan, AdminKetersediaan)
