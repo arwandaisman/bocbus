@@ -33,7 +33,7 @@ class DataBus(models.Model):
     judul = models.CharField(max_length = 100,default=None)
     merk_seri_bus =  models.CharField(max_length = 100,choices=merk_seri_bus,default=None, null=True)
     tahun_pembuatan =  models.IntegerField(default=2015)
-    no_plat = models.CharField(max_length = 15,default=None)
+    # no_plat = models.CharField(max_length = 15,default=None)
     kategori = models.CharField(max_length=10, choices=jenis_bus,default=None, null=True)
     harga_12jam = models.IntegerField(default=500000)
     harga_fullday = models.IntegerField(default=1000000)
@@ -73,9 +73,11 @@ class Images(models.Model):
     post = models.ForeignKey(DataBus, default=None, on_delete=models.CASCADE, related_name= 'images')
     image = models.ImageField(upload_to = 'gambar/', blank=True, null = True)
     def __str__(self):
-        return self.post.no_plat + " Image"
+        return self.post.judul + " Image"
 
-
+# class Ketersediaan(models.Model):
+#     sedia = model.ForeignKey(DataBus,  default=None, on_delete=models.CASCADE, related_name= 'sedia')
+    
 
 # class Provinsi(models.Model):
 #     nama = models.CharField(max_length=30)
